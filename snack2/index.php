@@ -33,6 +33,8 @@ if (empty($name)) {
 } else {
   if (strlen($name) > 3) {
     $message = "Accesso riuscito";
+  } else {
+    $message = "Accesso non riuscito";
   }
 };
 
@@ -41,11 +43,21 @@ if (empty($email)) {
 } else {
   if (strpos($email, "@") !== false && strpos($email, ".") !== false) {
     $message = "Accesso riuscito";
+  } else {
+    $message = "Accesso non riuscito";
   }
 };
 
-//
-// || empty($email) || empty($age)
+if (empty($age)) {
+  $message = "Accesso non riuscito";
+} else {
+  if (is_numeric($age)) {
+    $message = "Accesso riuscito";
+  } else {
+    $message = "Accesso non riuscito";
+  }
+};
+
 
 ?>
 
@@ -59,3 +71,10 @@ if (empty($email)) {
     <p><?php echo $message; ?></p>
   </body>
 </html>
+
+
+<!-- if ((strlen($name) > 3) && (strpos($email, "@") !== false) && (strpos($email, ".") !== false) && (is_numeric($age) == true)) {
+ echo "Accesso riuscito";
+} else {
+ echo "Accesso non riuscito";
+}  -->
