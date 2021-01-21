@@ -14,51 +14,11 @@ $name = $_GET["name"];
 $email = $_GET["email"];
 $age = $_GET["age"];
 
-// if (empty($name)) {
-//   $message = "Accesso non riuscito";
-// } else {
-//   if (strlen($name) > 3) {
-//     if (strpos($email, "@") !== false && strpos($email, ".") !== false) {
-//       $message = "Accesso riuscito";
-//     } else {
-//       $message = "Accesso non riuscito";
-//     }
-//   }
-// };
-
-
-
-if (empty($name)) {
-  $message = "Accesso non riuscito";
+if ((strlen($name) > 3) && (strpos($email, "@") !== false) && (strpos($email, ".") !== false) && (is_numeric($age) == true)) {
+  $message = "Accesso riuscito";
 } else {
-  if (strlen($name) > 3) {
-    $message = "Accesso riuscito";
-  } else {
-    $message = "Accesso non riuscito";
-  }
-};
-
-if (empty($email)) {
   $message = "Accesso non riuscito";
-} else {
-  if (strpos($email, "@") !== false && strpos($email, ".") !== false) {
-    $message = "Accesso riuscito";
-  } else {
-    $message = "Accesso non riuscito";
-  }
-};
-
-if (empty($age)) {
-  $message = "Accesso non riuscito";
-} else {
-  if (is_numeric($age)) {
-    $message = "Accesso riuscito";
-  } else {
-    $message = "Accesso non riuscito";
-  }
-};
-
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -71,10 +31,3 @@ if (empty($age)) {
     <p><?php echo $message; ?></p>
   </body>
 </html>
-
-
-<!-- if ((strlen($name) > 3) && (strpos($email, "@") !== false) && (strpos($email, ".") !== false) && (is_numeric($age) == true)) {
- echo "Accesso riuscito";
-} else {
- echo "Accesso non riuscito";
-}  -->
